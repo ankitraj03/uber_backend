@@ -5,6 +5,9 @@ const userRoute= require("./routes/userRoute.js")
 const driverRoute=require("./routes/driverRoute.js")
 const activeRoute= require("./routes/activeRoute.js")
 const geocodeRoute = require("./routes/geocodeRoute");
+const rideRoute = require("./routes/ridesRoute.js")
+const { router: eventRoute } = require("./routes/eventRoute.js");
+
 
 const app = express();
 app.use(express.json());
@@ -18,6 +21,8 @@ app.use("/users", userRoute);
 app.use("/drivers", driverRoute);
 app.use("/isActive", activeRoute);
 app.use("/api", geocodeRoute);
+app.use("/request", rideRoute);
+app.use("/event", eventRoute);
 
 const PORT = 5000;
 app.listen(PORT, () => {
